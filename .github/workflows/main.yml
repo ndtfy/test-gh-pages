@@ -12,4 +12,4 @@ jobs:
       with:
         username: 'ndtfy'
         reponame: 'test-gh-pages'
-        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+        token: ${{ secrets.GH_TOKEN }} # Leave this line unchanged
