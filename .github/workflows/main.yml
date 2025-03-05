@@ -50,11 +50,11 @@ jobs:
       - name: dir list
         run: ls -l ./
 
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     # Upload dist folder
-      #     path: './dist'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload dist folder
+          path: './dist'
 
       # - name: Deploy to GitHub Pages
       #   id: deployment
