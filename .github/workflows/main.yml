@@ -29,7 +29,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test token
-        run: echo ${{ secrets.GH_TOKEN }}
+        run: echo ${{ secrets.GITHUB_TOKEN }}
 
       - name: dir list
-        run: ls .
+        run: ls -l ./
+
+      - name: npm install
+        run: npm install
+
+      - name: dir list
+        run: ls -l ./
