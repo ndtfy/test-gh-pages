@@ -1,15 +1,35 @@
-# https://github.com/marketplace/actions/vue-to-github-pages
 name: Build Vue
-on: [push]
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - 'main'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Add write workflow permissions
+permissions:
+  contents: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build_vue:
     runs-on: ubuntu-latest
-    name: Build Vue
+    defaults:
+      run:
+        working-directory: .
+
     steps:
-    - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: thefrustrateddev/vue-deploy-github-pages@v1.0.0
-      with:
-        username: 'ndtfy'
-        reponame: 'test-gh-pages'
-        token: ${{ secrets.GH_TOKEN }} # Leave this line unchanged
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test token
+        run: echo ${{ secrets.GH_TOKEN }}
+
+      - name: dir list
+        run: ls .
