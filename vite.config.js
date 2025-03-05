@@ -16,5 +16,4 @@ export default defineConfig({
     },
   },
   base: '/test-gh-pages/',
-  publicPath: '/test-gh-pages/',
 })
