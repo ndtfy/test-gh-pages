@@ -34,6 +34,9 @@ jobs:
       - name: npm install
         run: npm install
 
+      - name: npm run build
+        run: npm run build
+
       - name: dir list
         run: ls -l ./
 
