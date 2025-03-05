@@ -28,9 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Test token
-        run: echo ${{ secrets.GITHUB_TOKEN }}
-
       - name: dir list
         run: ls -l ./
 
@@ -39,3 +36,14 @@ jobs:
 
       - name: dir list
         run: ls -l ./
+
+      - name: deploy
+        run: |
+              cd dist
+              ls -l ./
+              git config --global user.email "lishnih@gmail.com"
+              git config --global user.name "Stan Ovchinnikov"
+              git init
+              git add .
+              git commit -m 'Create gh-pages'
+              git push -f https://ndtfy:${{ secrets.GITHUB_TOKEN }}@github.com/ndtfy/test-gh-pages.git master:gh-pages
